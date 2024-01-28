@@ -1,0 +1,32 @@
+version: '3.0'
+
+services:
+  main:
+    container_name: main
+    build: 
+      context: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 5000:5000
+      - 9229:9229
+    command: npm run start
+    depends_on:
+      - postgres
+    restart: always
+  postgres:
+    container_name: postgres
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: todoList
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123451Ra
+    ports:
+      - 5432:5432
+    restart: always
+
+volumes:
+  postgres-data:
