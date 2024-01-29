@@ -22,7 +22,7 @@ services:
     image: postgres:16-alpine
     environment:
       POSTGRES_DB: todoList
-      POSTGRES_USER: postgres
+      POSTGRES_USER: arsen
       POSTGRES_PASSWORD: 123451Ra
     ports:
       - 5432:5432
