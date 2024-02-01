@@ -13,7 +13,7 @@ export class AuthController {
     @ApiResponse({ status: 200, type: String, description: 'Возвращает access токен' })
     @UsePipes(new ValidationPipe())
     @Post('create')
-    registration(@Res() response: Response ,@Body() createUserDto: CreateUserDto) {
+    registration(@Res() response: Response, @Body() createUserDto: CreateUserDto) {
         this.authService.registration(response ,createUserDto)
     }
 
