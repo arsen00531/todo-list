@@ -1,6 +1,5 @@
 import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create.dto';
-import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { compare, hash } from 'bcryptjs';
 import { LoginUserDto } from './dto/login.dto';
@@ -13,7 +12,6 @@ import { Request, Response } from 'express';
 export class AuthService {
     constructor(
         @InjectRepository(User)
-        private readonly userRepository: Repository<User>,
         private readonly jwtService: JwtService,
         private readonly usersService: UserService
     ) {}
